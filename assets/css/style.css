@@ -8,18 +8,19 @@
 --maroon-dark-accent: 94,18,26; 
 --maroon-900-accent: 61,12,18; 
 
---overlay-left-accent: 58,12,16;   
---overlay-right-accent: 70,16,21;  
+
+--overlay-left-accent: 50,8,12;     /* #32080C */
+--overlay-right-accent: 62,12,17;   /* #3E0C11 */
 
 --overlay-photo: linear-gradient(
     90deg,
-    rgba(var(--overlay-left-accent), .86) 0%,
-    rgba(var(--overlay-left-accent), .80) 30%,
-    rgba(var(--overlay-right-accent), .72) 65%,
-    rgba(var(--overlay-right-accent), .64) 100%
+    rgba(var(--overlay-left-accent), .90) 0%,
+    rgba(var(--overlay-left-accent), .84) 28%,
+    rgba(var(--overlay-right-accent), .76) 60%,
+    rgba(var(--overlay-right-accent), .68) 100%
 );
 
---photo-filter: brightness(0.80) contrast(1.12) saturate(0.68);
+--photo-filter: brightness(0.76) contrast(1.15) saturate(0.58);
 
 --gold: #C9A96A;
 
@@ -802,7 +803,6 @@ body.nav-open{ overflow: hidden; }
   border-radius: calc(var(--radius) * 1.2);
   overflow: hidden;
   border: 1px solid rgba(255,255,255,0.35);
-  box-shadow: 0 34px 85px rgba(133, 27, 37, 0.18);
   justify-self: center;
   width: 100%;
   max-width: 400px;
