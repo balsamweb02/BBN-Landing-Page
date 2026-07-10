@@ -1,5 +1,4 @@
 :root{
-/* Primary maroon scale, matched to the approved brand palette */
 --maroon: #851B25;
 --maroon-600: #7A1822;
 --maroon-700: #5E121A;
@@ -9,8 +8,8 @@
 --maroon-900-accent: 61,12,18; 
 
 
---overlay-left-accent: 50,8,12;     /* #32080C */
---overlay-right-accent: 62,12,17;   /* #3E0C11 */
+--overlay-left-accent: 50,8,12;     
+--overlay-right-accent: 62,12,17;   
 
 --overlay-photo: linear-gradient(
     90deg,
@@ -426,7 +425,7 @@ section{ position: relative; scroll-margin-top: 110px; }
   font-family: var(--font-display);
   font-weight: 800;
   font-size: clamp(12.5px, 2.4vw, 16px);
-  color: var(--ink);
+  color: var(--maroon);
   letter-spacing: -0.01em;
   transition: color 0.3s ease, font-size 0.3s ease;
   white-space: nowrap;
@@ -568,9 +567,6 @@ body.nav-open{ overflow: hidden; }
   .nav-right .tag-maroon{ display: none; }
 }
 
-/* ---- Mobile brand/title fix: keep logo, hamburger and brand text
-       fitting on one line, shrinking the title with ellipsis instead
-       of letting it get pushed under the toggle button ---- */
 @media (max-width: 768px){
   .nav-inner{ padding: 12px 16px; gap: 8px; flex-wrap: nowrap; }
   .navbar.scrolled .nav-inner{ padding: 10px 16px; }
@@ -605,7 +601,7 @@ body.nav-open{ overflow: hidden; }
   font-family: var(--font-display);
   font-weight: 800;
   font-size: 14px;
-  color: var(--ink);
+   color: var(--maroon);
   letter-spacing: -0.01em;
 }
 
@@ -1045,6 +1041,11 @@ body.nav-open{ overflow: hidden; }
 .about-content p{ color: var(--grey-800); font-size: 1rem; margin-bottom: 16px; }
 .about-content p strong{ color: var(--ink); font-weight: 700; }
 .about-content .about-tag{ display: inline-flex; margin-bottom: 20px; }
+
+.nowrap {
+  white-space: nowrap;
+}
+
 
 .about-panel{
   position: relative;

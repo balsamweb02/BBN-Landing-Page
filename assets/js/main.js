@@ -17,20 +17,13 @@ const setNavbarState = () => {
 };
 setNavbarState();
 window.addEventListener('scroll', setNavbarState, { passive: true });
-
-// Brand title: swap to short "Balsam BBN" only when the full title
-// doesn't actually fit in the available navbar space — not at a fixed
-// screen-size breakpoint. Re-checked on load and on every resize.
 const brandTextWrap = document.querySelector('.nav-brand-text');
 const brandDesktopTitle = brandTextWrap ? brandTextWrap.querySelector('.desktop-title') : null;
 
 function updateBrandTitle() {
   if (!brandTextWrap || !brandDesktopTitle) return;
-  // Show the full title first so we get its true, un-clipped width
   brandTextWrap.classList.remove('short-title');
-  // .desktop-title itself has overflow:hidden + white-space:nowrap, so
-  // comparing its own scrollWidth vs clientWidth (not the wrapper's)
-  // correctly tells us whether the text is being visually clipped.
+
   const isOverflowing = brandDesktopTitle.scrollWidth > brandDesktopTitle.clientWidth + 1;
   brandTextWrap.classList.toggle('short-title', isOverflowing);
 }
@@ -38,8 +31,6 @@ function updateBrandTitle() {
 updateBrandTitle();
 window.addEventListener('resize', updateBrandTitle, { passive: true });
 window.addEventListener('load', updateBrandTitle);
-
-//Cursor glow follows the pointer across the page
 const cursorGlow = document.getElementById('cursor-glow');
 const supportsFineHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 if (cursorGlow && supportsFineHover) {
@@ -58,7 +49,6 @@ if (cursorGlow && supportsFineHover) {
   });
 }
 
-//Scroll progress bar 
 const progressBar = document.getElementById('scroll-progress');
 function updateScrollProgress(){
   if (!progressBar) return;
@@ -69,7 +59,6 @@ function updateScrollProgress(){
 }
 updateScrollProgress();
 
-// Hero parallax 
 const hero = document.querySelector('.hero');
 const heroGlow = document.querySelector('.hero-glow');
 
@@ -102,8 +91,6 @@ window.addEventListener('scroll', () => {
     updateScrollProgress();
   });
 }, { passive: true });
-
-//Ripple effect on button clicks 
 document.querySelectorAll('.btn').forEach((btn) => {
   btn.addEventListener('click', (e) => {
     const rect = btn.getBoundingClientRect();
@@ -125,8 +112,6 @@ if (notifyBtn) {
     alert("Thanks for your interest! Registration for Balsam Business Network is opening soon — stay tuned.");
   });
 }
-
-//Mobile nav toggle 
 const navToggle = document.getElementById('nav-toggle');
 const navLinks = document.getElementById('nav-links');
 const navBackdrop = document.getElementById('nav-backdrop');
@@ -162,7 +147,6 @@ if (navToggle && navLinks) {
     }
   });
 
-  // Close the mobile menu automatically if the viewport grows back to desktop size
   window.addEventListener('resize', () => {
     if (window.innerWidth > 900 && navLinks.classList.contains('open')) {
       closeMobileNav();
@@ -192,7 +176,6 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-//Scroll-triggered reveal animations
 const revealEls = document.querySelectorAll('[data-reveal]');
 
 revealEls.forEach((el) => {
@@ -217,7 +200,6 @@ if ('IntersectionObserver' in window && revealEls.length) {
   revealEls.forEach((el) => el.classList.add('in-view'));
 }
 
-//Highlight nav links based on the visible section
 const sections = document.querySelectorAll('section[id]');
 if ('IntersectionObserver' in window && sections.length) {
   const navObserver = new IntersectionObserver((entries) => {
@@ -234,7 +216,6 @@ if ('IntersectionObserver' in window && sections.length) {
   sections.forEach((s) => navObserver.observe(s));
 }
 
-// Magnetic buttons: a subtle, professional pull toward the cursor
 const magneticEls = document.querySelectorAll('.magnetic');
 const supportsHover = supportsFineHover;
 
