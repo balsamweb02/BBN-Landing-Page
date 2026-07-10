@@ -109,7 +109,7 @@ const notifyBtn = document.getElementById('notify-btn');
 if (notifyBtn) {
   notifyBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    alert("Thanks for your interest! Registration for Balsam Business Network is opening soon — stay tuned.");
+    alert("Thanks for your interest! Registration for Balsam Business Network isn't live yet — stay tuned for updates.");
   });
 }
 const navToggle = document.getElementById('nav-toggle');
